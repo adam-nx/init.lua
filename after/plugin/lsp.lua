@@ -5,7 +5,6 @@ lsp.on_attach(function(client, bufnr)
   -- to learn the available actions
   lsp.default_keymaps({buffer = bufnr})
 end)
-lsp.nvim_workspace()
 lsp.on_attach(function(client, bufnr)
   local opts = {buffer = bufnr, remap = false}
 
