@@ -54,9 +54,16 @@ return require('packer').startup(function(use)
 
     use {
         "nvim-neorg/neorg",
-    --    ft = "norg", --load only when opening .norg files
         after = "nvim-treesitter",
         run = ":Neorg sync-parsers",
         requires = "nvim-lua/plenary.nvim",
+    }
+    use 'mfussenegger/nvim-dap'
+    use {'leoluz/nvim-dap-go',
+        ft = 'go',
+        dependencies = 'mfussenegger/nvim-dap',
+        config = function (_, opts)
+            require('dap-go').setup(opts)
+        end
     }
 end)
